@@ -1,0 +1,68 @@
+@import "../../index.scss";
+
+.nav {
+  padding: 3rem 0;
+
+  &__container {
+    @include container-style;
+    @include flex-style;
+  }
+
+  &__header {
+    @include flex-style;
+  }
+
+  &__logo {
+    width: 17.5rem;
+  }
+
+  &__toggle {
+    cursor: pointer;
+    display: none;
+    font-size: 2.5rem;
+    color: $color-primary-5;
+  }
+
+  &__list {
+    @include flex-style;
+    gap: 3rem;
+  }
+
+  &__item {
+    border-bottom: 3px solid transparent;
+    @include transition-style;
+
+    &--animated:hover {
+      border-bottom-color: $color-primary-5;
+    }
+  }
+
+  &__link {
+    @include text-style;
+  }
+
+  &__console {
+    @include flex-style;
+    gap: 3rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav {
+    &__header {
+      width: 100%;
+    }
+
+    &__toggle {
+      display: inline-block;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__console {
+      display: none;
+    }
+  }
+}

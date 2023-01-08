@@ -1,0 +1,17 @@
+@import "../../index.scss";
+
+.footer {
+  padding: 6rem 0;
+  text-align: center;
+  background: $color-black;
+  text-align: center;
+  color: $color-white;
+
+  &__container {
+    @include container-style;
+  }
+
+  &__name {
+    color: $color-primary-5;
+  }
+}
