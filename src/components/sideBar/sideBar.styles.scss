@@ -1,0 +1,69 @@
+@import "../../index.scss";
+
+.sidebar {
+  @include transition-style;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-white;
+  transform: translate(-100%);
+  z-index: -1;
+
+  &__header {
+    @include flex-style;
+    padding: 1rem 1.5rem;
+  }
+
+  &__logo {
+    justify-self: center;
+    height: 4.5rem;
+  }
+
+  &__close-btn {
+    @include transition-style;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $color-red-dark;
+    margin-top: 0.2rem;
+
+    &:hover {
+      color: $color-red-light;
+    }
+  }
+
+  &__link {
+    @include text-style;
+    @include transition-style;
+    display: block; 
+    padding: 1rem 1.5rem;
+
+    &:hover {
+      padding: 1rem 1.5rem;
+      padding-left: 2rem;
+      background: $color-grey-10;
+      color: $color-grey-2;
+    }
+  }
+
+  &__console {
+    @include flex-style;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  &--show {
+    transform: translate(0);
+    z-index: 1;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
