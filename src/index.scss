@@ -7,44 +7,37 @@ $color-primary-3: #795744;
 $color-primary-4: #936a53;
 $color-primary-5: #ab7a5f;
 $color-primary-6: #b99179;
-$color-primary-7: hsl(22, 31%, 67%);
-$color-primary-8: hsl(20, 31%, 74%);
-$color-primary-9: hsl(22, 31%, 81%);
-$color-primary-10: hsl(22, 31%, 88%);
+$color-primary-7: #c5a491;
+$color-primary-8: #d1b6a8;
+$color-primary-9: #decbc0;
+$color-primary-10: #eaded7;
 
 $color-grey-1: #102a42;
-$color-grey-2: hsl(211, 39%, 23%);
-$color-grey-3: hsl(209, 34%, 30%);
-$color-grey-4: hsl(209, 28%, 39%);
-$color-grey-5: hsl(210, 22%, 49%);
-$color-grey-6: hsl(209, 23%, 60%);
-$color-grey-7: hsl(211, 27%, 70%);
-$color-grey-8: hsl(210, 31%, 80%);
-$color-grey-9: hsl(212, 33%, 89%);
-$color-grey-10: hsl(210, 36%, 96%);
+$color-grey-2: #243a52;
+$color-grey-3: #324d67;
+$color-grey-4: #48647f;
+$color-grey-5: #617d98;
+$color-grey-6: #829ab0;
+$color-grey-7: #9eb2c7;
+$color-grey-8: #bcccdc;
+$color-grey-9: #dae2ec;
+$color-grey-10: #f1f5f8;
 
 $color-white: #fff;
-$color-red-dark: hsl(360, 67%, 44%);
-$color-red-light: hsl(360, 71%, 66%);
-$color-green-dark: hsl(125, 67%, 44%);
-$color-green-light: hsl(125, 71%, 66%);
+$color-red-dark: #bb2525;
+$color-red-light: #e66b6b;
+$color-green-dark: #25bb32;
+$color-green-light: #6be675;
 $color-black: #222;
 
-// --transition: all 0.3s linear;
-// --spacing: 0.1rem;
-// --radius: 0.25rem;
-// --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-// --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-// --max-width: 1170px;
-// --fixed-width: 620px;
-
 /* ----------------------------------- */
-/* Global Styles */
+/* Mixin */
 /* ----------------------------------- */
-@mixin container-style() {
-  width: 90%;
+@mixin container-style($padding) {
+  width: 80%;
   margin: auto;
   max-width: 1800px;
+  padding: $padding 0;
 }
 
 @mixin flex-style() {
@@ -60,7 +53,7 @@ $color-black: #222;
 }
 
 @mixin transition-style() {
-  transition: 0.3s linear;
+  transition: 0.2s linear;
 }
 
 /* ----------------------------------- */
@@ -93,4 +86,17 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+hr {
+  border: none;
+  height: 0.5rem;
+  background-color: $color-primary-5;
+  margin: 1rem 0 3rem;
+  width: 20%;
+}
+
+.heading-secondary {
+  text-transform: capitalize;
+  font-size: 3.5rem;
 }

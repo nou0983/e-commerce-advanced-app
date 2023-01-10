@@ -1,0 +1,22 @@
+@import "../../index.scss";
+
+.section-page-hero {
+  background-color: $color-primary-10;
+  text-transform: capitalize;
+  font-size: 3rem;
+  font-weight: 700;
+
+  &__container {
+    @include container-style(10rem);
+  }
+
+  &__link {
+    @include transition-style;
+    color: $color-primary-3;
+    margin: 0 1.3rem 0 1%;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}

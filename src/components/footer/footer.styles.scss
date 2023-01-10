@@ -8,7 +8,7 @@
   color: $color-white;
 
   &__container {
-    @include container-style;
+    @include container-style(3rem);
   }
 
   &__name {

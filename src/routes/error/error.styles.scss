@@ -1,0 +1,28 @@
+@import '../../index.scss';
+
+.section-error {
+  background: $color-primary-10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 81vh;
+
+  &__status {
+    font-size: 10rem;
+  }
+
+  &__text {
+     font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    background-color: $color-primary-5;
+    color: $color-primary-10;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+}
