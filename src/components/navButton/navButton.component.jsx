@@ -1,12 +1,15 @@
 import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useProductsContext } from "../../contexts/productsContext.context";
 import "./navButton.styles.scss";
 
 const NavButton = ({ type }) => {
+  const { toggleSidebar } = useProductsContext();
+
   return (
     <>
       {type === "cart" && (
-        <Link to="/cart" className="btn">
+        <Link to="/cart" className="btn" onClick={toggleSidebar}>
           cart
           <span className="btn__icon-container">
             <FaShoppingCart className="btn__icon" />

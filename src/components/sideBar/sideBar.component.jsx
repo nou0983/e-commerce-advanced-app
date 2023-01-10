@@ -1,18 +1,19 @@
+import { useProductsContext } from "../../contexts/productsContext.context";
 import { NavLink } from "react-router-dom";
-import { links } from "../../utils/constants";
+import { links } from "../../utils/constants.utils";
 import NavButton from "../navButton/navButton.component";
 import logo from "../../assets/logo.svg";
 import { FaTimes } from "react-icons/fa";
 import "./sideBar.styles.scss";
 
 const SideBar = () => {
-  const isOpen = true;
+  const { isSidebarOpen, toggleSidebar } = useProductsContext();
 
   return (
-    <aside className={`sidebar ${isOpen && "sidebar--show"}`}>
+    <aside className={`sidebar ${isSidebarOpen && "sidebar--show"}`}>
       <div className="sidebar__header">
         <img src={logo} alt="Comfy Sloth" className="sidebar__logo" />
-        <button className="sidebar__close-btn">
+        <button className="sidebar__close-btn" onClick={toggleSidebar}>
           <FaTimes className="sidebar__close-icon" />
         </button>
       </div>
@@ -21,7 +22,11 @@ const SideBar = () => {
           const { id, text, url } = link;
           return (
             <li key={id} className="sidebar__item">
-              <NavLink to={url} className="sidebar__link">
+              <NavLink
+                to={url}
+                className="sidebar__link"
+                onClick={toggleSidebar}
+              >
                 {text}
               </NavLink>
             </li>

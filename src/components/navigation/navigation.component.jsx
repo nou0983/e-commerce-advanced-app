@@ -1,11 +1,14 @@
+import { useProductsContext } from "../../contexts/productsContext.context";
 import NavButton from "../navButton/navButton.component";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { links } from "../../utils/constants";
+import { links } from "../../utils/constants.utils";
 import logo from "../../assets/logo.svg";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
+  const { toggleSidebar } = useProductsContext();
+
   return (
     <nav className="nav">
       <div className="nav__container">
@@ -13,7 +16,7 @@ const Navigation = () => {
           <NavLink to="/">
             <img src={logo} alt="Comfy Sloth" className="nav__logo" />
           </NavLink>
-          <button className="nav__toggle">
+          <button className="nav__toggle" onClick={toggleSidebar}>
             <FaBars />
           </button>
         </div>
