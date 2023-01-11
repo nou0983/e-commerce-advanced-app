@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-.btn {
+.nav-btn {
   @include text-style;
   @include flex-style;
   gap: 0.7rem;

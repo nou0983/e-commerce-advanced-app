@@ -1,6 +1,12 @@
+import { PageHero } from "../../components/index.component";
+import "./checkout.styles.scss";
+
 const Checkout = () => {
   return (
-    <div>Checkout</div>
-  )
-}
-export default Checkout
+    <main>
+      <PageHero type="checkout" />
+      <section className="section-checkout">Checkout</section>
+    </main>
+  );
+};
+export default Checkout;

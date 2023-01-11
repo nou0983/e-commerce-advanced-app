@@ -1,0 +1,16 @@
+@import "../../index.scss";
+
+.btn {
+  @include transition-style;
+  background-color: $color-primary-5;
+  color: $color-primary-10;
+  padding: 1.5rem 2.5rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+
+  &:hover {
+    color: $color-primary-1;
+    background-color: $color-primary-7;
+  }
+}

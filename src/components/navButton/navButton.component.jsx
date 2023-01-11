@@ -9,17 +9,17 @@ const NavButton = ({ type }) => {
   return (
     <>
       {type === "cart" && (
-        <Link to="/cart" className="btn" onClick={toggleSidebar}>
+        <Link to="/cart" className="nav-btn" onClick={toggleSidebar}>
           cart
-          <span className="btn__icon-container">
-            <FaShoppingCart className="btn__icon" />
-            <span className="btn__amount">12</span>
+          <span className="nav-btn__icon-container">
+            <FaShoppingCart className="nav-btn__icon" />
+            <span className="nav-btn__amount">12</span>
           </span>
         </Link>
       )}
       {type === "user" && (
-        <button type="button" className="btn">
-          login <FaUserPlus className="btn__icon" />
+        <button type="button" className="nav-btn">
+          login <FaUserPlus className="nav-btn__icon" />
         </button>
       )}
     </>

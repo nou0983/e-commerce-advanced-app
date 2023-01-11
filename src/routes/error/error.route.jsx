@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import './error.styles.scss';
+import { Button } from "../../components/index.component";
+import "./error.styles.scss";
 
 const Error = () => {
   return (
@@ -8,7 +8,9 @@ const Error = () => {
       <p className="section-error__text">
         Sorry, the page you tried cannot be found
       </p>
-      <Link to="/" className="section-error__btn">back home</Link>
+      <Button url="/">
+        back home
+      </Button>
     </section>
   );
 };
