@@ -1,13 +1,13 @@
-import { useProductsContext } from "../../contexts/productsContext.context";
+import { usePopupContext } from "../../contexts/popupContext.context";
 import NavButton from "../navButton/navButton.component";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import { links } from "../../utils/constants.utils";
+import { LINKS } from "../../utils/constants.utils";
 import logo from "../../assets/logo.svg";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
-  const { toggleSidebar } = useProductsContext();
+  const { toggleSidebar } = usePopupContext();
 
   return (
     <nav className="nav">
@@ -21,7 +21,7 @@ const Navigation = () => {
           </button>
         </div>
         <ul className="nav__list">
-          {links.map((link) => {
+          {LINKS.map((link) => {
             const { id, text, url } = link;
             return (
               <li key={id} className="nav__item nav__item--animated">

@@ -4,6 +4,7 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { PopupProvider } from "./contexts/popupContext.context";
 import { ProductsProvider } from "./contexts/productsContext.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -11,7 +12,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ProductsProvider>
-        <App />
+        <PopupProvider>
+          <App />
+        </PopupProvider>
       </ProductsProvider>
     </BrowserRouter>
   </React.StrictMode>

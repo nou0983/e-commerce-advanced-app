@@ -1,0 +1,23 @@
+@import "../../index.scss";
+
+.spinner-container {
+  @include container-style(8rem, 100%);
+  @include flex-style;
+  height: 50vh;
+  justify-content: center;
+
+  &__icon {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100px;
+    border: 3px solid $color-grey-7;
+    border-top-color: $color-grey-4;
+    animation: spinner 2s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

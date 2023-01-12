@@ -1,7 +1,7 @@
 import React from "react";
 import { GiCompass, GiDiamondHard, GiStabbedNote } from "react-icons/gi";
 
-const links = [
+const LINKS = [
   {
     id: 1,
     text: "home",
@@ -19,7 +19,7 @@ const links = [
   },
 ];
 
-const services = [
+const SERVICES = [
   {
     id: 1,
     icon: <GiCompass />,
@@ -40,7 +40,7 @@ const services = [
   },
 ];
 
-const products_url = "https://course-api.com/react-store-products";
-const single_product_url = `https://course-api.com/react-store-single-product?id=`;
+const PRODUCTS_URL = "https://course-api.com/react-store-products";
+const SINGLE_PRODUCT_URL = `https://course-api.com/react-store-single-product?id=`;
 
-export { links, services, products_url, single_product_url };
+export { LINKS, SERVICES, PRODUCTS_URL, SINGLE_PRODUCT_URL };

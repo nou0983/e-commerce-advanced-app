@@ -7,6 +7,10 @@ import Contact from "./contact/contact.component";
 import FeaturedProducts from "./featuredProducts/featuredProducts.component";
 import Hero from "./hero/hero.component";
 import Services from "./services/services.component";
+import Spinner from "./spinner/spinner.component";
+import Error from "./error/error.component";
+import Product from "./product/product.component";
+import ProductContainer from "./productContainer/productContainer.component";
 
 export {
   Navigation,
@@ -18,4 +22,8 @@ export {
   FeaturedProducts,
   Hero,
   Services,
+  Spinner,
+  Error,
+  Product,
+  ProductContainer
 };

@@ -1,0 +1,63 @@
+@import "../../index.scss";
+
+.product {
+  width: 31%;
+
+  &__image-container {
+    position: relative;
+    background-color: $color-black;
+    height: 30rem;
+    border-radius: 5px;
+
+    &:hover {
+      .product__img {
+        opacity: 0.7;
+      }
+
+      .product__icon-container {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    @include transition-style;
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  &__icon-container {
+    @include transition-style;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+    height: 5rem;
+    width: 5rem;
+    background-color: $color-primary-5;
+  }
+
+  &__icon {
+    color: $color-white;
+    vertical-align: -18px;
+    font-size: 2rem;
+  }
+
+  &__details {
+    @include flex-style;
+    margin-top: 1rem;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
+
+  &__price {
+    color: $color-primary-5;
+  }
+}

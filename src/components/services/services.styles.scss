@@ -1,0 +1,85 @@
+@import "../../index.scss";
+
+.section-services {
+  background-color: $color-primary-10;
+
+  &__container {
+    @include container-style(7rem, 50%);
+    padding-bottom: 0;
+  }
+
+  &__header {
+    @include flex-style;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    width: 25%;
+    color: $color-primary-1;
+  }
+
+  &__text {
+    width: 50%;
+    color: $color-primary-3;
+  }
+
+  &__card-container {
+    @include flex-style;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    text-align: center;
+    padding: 4rem 3rem;
+    border-radius: 5px;
+    background-color: $color-primary-7;
+    width: 30%;
+    position: relative;
+    top: 7rem;
+  }
+
+  &__icon {
+    display: inline-block;
+    font-size: 3rem;
+    background-color: $color-primary-10;
+    color: $color-primary-1;
+    border-radius: 100px;
+    width: 6rem;
+    height: 6rem;
+  }
+
+  svg {
+    vertical-align: -15px;
+  }
+
+  h3 {
+    margin: 2rem 0;
+    color: $color-primary-1;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: capitalize;
+  }
+
+  &__info {
+    color: $color-primary-2;
+  }
+}
+
+@media (max-width: 1100px) {
+  .section-services {
+    &__container {
+      padding-bottom: 7rem;
+    }
+    
+    &__card-container {
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 5rem;
+    }
+
+    &__card {
+      width: 70%;
+      top: 0;
+    }
+  }
+}

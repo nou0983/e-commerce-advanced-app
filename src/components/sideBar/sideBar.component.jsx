@@ -1,13 +1,13 @@
-import { useProductsContext } from "../../contexts/productsContext.context";
+import { usePopupContext } from "../../contexts/popupContext.context";
 import { NavLink } from "react-router-dom";
-import { links } from "../../utils/constants.utils";
+import { LINKS } from "../../utils/constants.utils";
 import NavButton from "../navButton/navButton.component";
 import logo from "../../assets/logo.svg";
 import { FaTimes } from "react-icons/fa";
 import "./sideBar.styles.scss";
 
 const SideBar = () => {
-  const { isSidebarOpen, toggleSidebar } = useProductsContext();
+  const { isSidebarOpen, toggleSidebar } = usePopupContext();
 
   return (
     <aside className={`sidebar ${isSidebarOpen && "sidebar--show"}`}>
@@ -18,7 +18,7 @@ const SideBar = () => {
         </button>
       </div>
       <ul className="sidebar__list">
-        {links.map((link) => {
+        {LINKS.map((link) => {
           const { id, text, url } = link;
           return (
             <li key={id} className="sidebar__item">

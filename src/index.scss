@@ -33,8 +33,8 @@ $color-black: #222;
 /* ----------------------------------- */
 /* Mixin */
 /* ----------------------------------- */
-@mixin container-style($padding) {
-  width: 80%;
+@mixin container-style($padding, $width: 80%) {
+  width: $width;
   margin: auto;
   max-width: 1800px;
   padding: $padding 0;
@@ -96,14 +96,19 @@ hr {
   width: 20%;
 }
 
+p {
+  line-height: 1.7;
+}
+
 .heading-primary {
   text-transform: capitalize;
   font-size: 4.5rem;
   margin-bottom: 2rem;
-  font-weight: 900;
+  font-weight: 900;  
 }
 
 .heading-secondary {
   text-transform: capitalize;
   font-size: 3.5rem;
+  letter-spacing: 1px;
 }

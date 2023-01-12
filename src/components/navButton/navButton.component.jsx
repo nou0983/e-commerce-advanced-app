@@ -1,10 +1,10 @@
 import { FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useProductsContext } from "../../contexts/productsContext.context";
+import { usePopupContext } from "../../contexts/popupContext.context";
 import "./navButton.styles.scss";
 
 const NavButton = ({ type }) => {
-  const { toggleSidebar } = useProductsContext();
+  const { toggleSidebar } = usePopupContext();
 
   return (
     <>
