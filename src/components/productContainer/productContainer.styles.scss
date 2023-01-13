@@ -11,4 +11,30 @@
   &__info {
     width: 43%;
   }
+
+  &__paragraph {
+    margin-bottom: 2rem;
+
+    &--brand {
+      border-bottom: 1px solid $color-grey-8;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__price {
+    color: $color-primary-5;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    font-weight: 700;
+    width: 22%;
+    display: inline-block;
+  }
+
+  &__content {
+    text-transform: capitalize;
+  }
 }

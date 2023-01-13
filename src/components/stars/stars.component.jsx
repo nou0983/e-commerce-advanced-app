@@ -20,7 +20,7 @@ const Stars = ({ stars, reviews }) => {
   });
 
   return (
-    <artcile className="review-container">
+    <article className="review-container">
       <div className="review-container__star-box">
         {tempStars}
         {/* Manual Stars Generator */}
@@ -71,7 +71,7 @@ const Stars = ({ stars, reviews }) => {
         </span> */}
       </div>
       <p className="review-container__reviews">{`(${reviews} customer reviews)`}</p>
-    </artcile>
+    </article>
   );
 };
 

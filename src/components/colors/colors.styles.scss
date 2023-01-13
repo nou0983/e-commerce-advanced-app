@@ -1,0 +1,31 @@
+@import '../../index.scss';
+
+.single-product-container {
+  &__color-container {
+    @include flex-style;
+    justify-content: flex-start;    
+  }
+
+  &__color {
+    height: 3rem;
+    width: 3rem;
+    display: inline-block;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.7;
+
+    svg {
+      vertical-align: -3px;
+      color: $color-white;
+    }
+    
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+
+    &--main {
+      opacity: 1;
+    }
+  }
+}

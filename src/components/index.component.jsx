@@ -13,6 +13,9 @@ import Product from "./product/product.component";
 import ProductContainer from "./productContainer/productContainer.component";
 import ProductImages from "./productImages/productImages.component";
 import Stars from "./stars/stars.component";
+import AddToCart from "./addToCart/addToCart.component";
+import Colors from "./colors/colors.component";
+import AmountButton from "./amountButton/amountButton.component";
 
 export {
   Navigation,
@@ -29,5 +32,8 @@ export {
   Product,
   ProductContainer,
   ProductImages,
-  Stars
+  Stars,
+  AddToCart,
+  Colors,
+  AmountButton,
 };
