@@ -31,7 +31,7 @@ const ProductsProvider = ({ children }) => {
   };
 
   const fetchSingleProduct = async (productId) => {
-    try {
+    try {      
       dispatch(createAction(PRODUCTS_ACITON_TYPE.SET_PRODUCT_LOADING, true));
 
       const response = await axios(SINGLE_PRODUCT_URL + productId);

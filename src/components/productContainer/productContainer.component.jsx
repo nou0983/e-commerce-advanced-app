@@ -1,4 +1,4 @@
-import { Button } from "../index.component";
+import { Button, ProductImages } from "../index.component";
 import { formatPrice } from "../../utils/helper.utils";
 import "./productContainer.styles.scss";
 
@@ -17,13 +17,7 @@ const ProductContainer = ({
     <article className="single-product-container">
       <Button url="/products">back to products</Button>
       <div className="single-product-container__details">
-        <div className="single-product-container__image-container">
-          <img
-            src={"A"}
-            alt={name}
-            className="single-product-container__img-main"
-          />
-        </div>
+        <ProductImages images={images} />
         <div className="single-product-container__info">
           <h2 className="heading-secondary">{name}</h2>
           <h5 className="single-product-container__price">
@@ -39,12 +33,8 @@ const ProductContainer = ({
             </span>
           </p>
           <p className="single-product-container__code">
-            <span className="single-product-container__code-label">
-              SKU :
-            </span>
-            <span className="single-product-container__code-number">
-              {id}
-            </span>
+            <span className="single-product-container__code-label">SKU :</span>
+            <span className="single-product-container__code-number">{id}</span>
           </p>
           <p className="single-product-container__brand">
             <span className="single-product-container__brand-label">
@@ -53,7 +43,7 @@ const ProductContainer = ({
             <span className="single-product-container__brand-name">
               {company}
             </span>
-          </p>       
+          </p>
         </div>
       </div>
     </article>

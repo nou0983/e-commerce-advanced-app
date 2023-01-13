@@ -11,6 +11,7 @@ import Spinner from "./spinner/spinner.component";
 import Error from "./error/error.component";
 import Product from "./product/product.component";
 import ProductContainer from "./productContainer/productContainer.component";
+import ProductImages from "./productImages/productImages.component";
 
 export {
   Navigation,
@@ -25,5 +26,6 @@ export {
   Spinner,
   Error,
   Product,
-  ProductContainer
+  ProductContainer,
+  ProductImages,
 };
