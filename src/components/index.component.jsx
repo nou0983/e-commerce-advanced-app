@@ -12,6 +12,7 @@ import Error from "./error/error.component";
 import Product from "./product/product.component";
 import ProductContainer from "./productContainer/productContainer.component";
 import ProductImages from "./productImages/productImages.component";
+import Stars from "./stars/stars.component";
 
 export {
   Navigation,
@@ -28,4 +29,5 @@ export {
   Product,
   ProductContainer,
   ProductImages,
+  Stars
 };

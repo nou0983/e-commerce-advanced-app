@@ -1,4 +1,4 @@
-import { Button, ProductImages } from "../index.component";
+import { Button, ProductImages, Stars } from "../index.component";
 import { formatPrice } from "../../utils/helper.utils";
 import "./productContainer.styles.scss";
 
@@ -7,7 +7,7 @@ const ProductContainer = ({
   name,
   price,
   stock,
-  start,
+  stars,
   description,
   reviews,
   id,
@@ -20,6 +20,7 @@ const ProductContainer = ({
         <ProductImages images={images} />
         <div className="single-product-container__info">
           <h2 className="heading-secondary">{name}</h2>
+          <Stars stars={stars} reviews={reviews} />
           <h5 className="single-product-container__price">
             {formatPrice(price)}
           </h5>
