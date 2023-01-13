@@ -16,6 +16,9 @@ import Stars from "./stars/stars.component";
 import AddToCart from "./addToCart/addToCart.component";
 import Colors from "./colors/colors.component";
 import AmountButton from "./amountButton/amountButton.component";
+import Sort from "./sort/sort.component";
+import Filters from "./filters/filters.component";
+import ProductList from "./productList/productList.component";
 
 export {
   Navigation,
@@ -36,4 +39,7 @@ export {
   AddToCart,
   Colors,
   AmountButton,
+  Sort,
+  Filters,
+  ProductList,
 };

@@ -1,0 +1,10 @@
+@import '../../index.scss';
+
+.section-products {
+  @include container-style(6rem, 50%);
+  @include flex-style;
+
+  &__container {
+    width: 80%;
+  }
+}
