@@ -8,7 +8,7 @@ import { createAction } from "../utils/createAtion.utils";
 
 const PopupContext = createContext();
 
-const PopupProvider = ({ children }) => {
+const PopupContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(popupReducer, INITIAL_POPUP_STATE);
   const { isSidebarOpen, isModalOpen } = state;
 
@@ -35,4 +35,4 @@ const usePopupContext = () => {
   return useContext(PopupContext);
 };
 
-export { PopupProvider, usePopupContext };
+export { PopupContextProvider, usePopupContext };

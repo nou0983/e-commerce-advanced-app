@@ -4,18 +4,21 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { PopupProvider } from "./contexts/popupContext.context";
-import { ProductsProvider } from "./contexts/productsContext.context";
+import { PopupContextProvider } from "./contexts/popupContext.context";
+import { ProductsContextProvider } from "./contexts/productsContext.context";
+import { FilterContextProvider } from "./contexts/filterContext.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductsProvider>
-        <PopupProvider>
-          <App />
-        </PopupProvider>
-      </ProductsProvider>
+      <ProductsContextProvider>
+        <PopupContextProvider>
+          <FilterContextProvider>
+            <App />
+          </FilterContextProvider>
+        </PopupContextProvider>
+      </ProductsContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 const ProductsContext = createContext();
 
-const ProductsProvider = ({ children }) => {
+const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productsReducer, INITIAL_PRODUCTS_STATE);
 
   const fetchProducts = async () => {
@@ -62,4 +62,4 @@ const useProductsContext = () => {
   return useContext(ProductsContext);
 };
 
-export { ProductsProvider, useProductsContext };
+export { ProductsContextProvider, useProductsContext };
