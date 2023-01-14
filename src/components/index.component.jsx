@@ -19,6 +19,8 @@ import AmountButton from "./amountButton/amountButton.component";
 import Sort from "./sort/sort.component";
 import Filters from "./filters/filters.component";
 import ProductList from "./productList/productList.component";
+import GridView from "./gridView/gridView.component";
+import ListView from "./listView/listView.component";
 
 export {
   Navigation,
@@ -42,4 +44,6 @@ export {
   Sort,
   Filters,
   ProductList,
+  GridView,
+  ListView,
 };

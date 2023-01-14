@@ -18,9 +18,15 @@ const FilterContextProvider = ({ children }) => {
     dispatch(createAction(FILTER_ACTION_TYPE.LOAD_PRODUCTS, products));
   }, [products]);
 
+  const toggleViewMode = (mode) => {
+    dispatch(createAction(FILTER_ACTION_TYPE.SET_VIEW_MODE, mode));
+  }
+
   const value = {
     ...state,
+    toggleViewMode
   };
+
   return (
     <FilterContext.Provider value={value}>{children}</FilterContext.Provider>
   );
