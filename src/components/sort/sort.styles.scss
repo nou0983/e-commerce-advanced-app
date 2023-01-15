@@ -1,0 +1,63 @@
+@import "../../index.scss";
+
+.sort-container {
+  @include flex-style;
+  text-transform: capitalize;
+  margin-bottom: 3rem;
+
+  &__header {
+    width: 7%;
+  }
+
+  &__btn {
+    font-size: 1.8rem;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 2.8rem;
+    height: 2.8rem;
+    text-align: center;
+
+    &:first-of-type {
+      margin-right: 1rem;
+    }
+
+    &--active {
+      color: $color-white;
+      background-color: $color-black;
+    }
+  }
+
+  svg {
+    vertical-align: -3px;
+  }
+
+  &__body {
+    @include flex-style;
+    width: 70%;
+  }
+
+  hr {
+    width: 80%;
+    margin: 0;
+    background-color: $color-grey-8;
+    height: 0.5px;
+  }
+
+  &__footer {
+    width: 20%;
+  }
+
+  &__label {
+    margin-right: 1rem;
+  }
+
+  &__input {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
+
+  option {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
+}
