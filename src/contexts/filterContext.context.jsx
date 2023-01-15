@@ -16,12 +16,23 @@ const FilterContextProvider = ({ children }) => {
   const { allProducts, filteredProducts, sort } = state;
 
   useEffect(() => {
-    dispatch(createAction(FILTER_ACTION_TYPE.LOAD_PRODUCTS, products));
+    setDefaultFiltersProducts();
   }, [products]);
 
   useEffect(() => {
     setFilteredProducts();
   }, [allProducts, sort]);
+
+  const setDefaultFiltersProducts = () => {
+    const priceList = products.map((product) => {
+      return product.price;
+    });
+    const maxPrice = Math.max(...priceList);
+    const minPrice = Math.min(...priceList);
+    const payload = { products, maxPrice, minPrice };
+ 
+    dispatch(createAction(FILTER_ACTION_TYPE.LOAD_PRODUCTS, payload));
+  };
 
   const toggleViewMode = (mode) => {
     dispatch(createAction(FILTER_ACTION_TYPE.SET_VIEW_MODE, mode));

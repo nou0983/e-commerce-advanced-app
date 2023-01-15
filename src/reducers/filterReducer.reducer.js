@@ -3,6 +3,16 @@ const INITIAL_FILTER_STATE = {
   filteredProducts: [],
   viewMode: "grid",
   sort: "price (lowest)",
+  filters: {
+    text: "",
+    category: "all",
+    company: "all",
+    color: "all",
+    minPrice: 0,
+    maxPrice: 0,
+    price: 0,
+    shipping: false,
+  },
 };
 
 const FILTER_ACTION_TYPE = {
@@ -16,11 +26,16 @@ const filterReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case FILTER_ACTION_TYPE.LOAD_PRODUCTS:
+    case FILTER_ACTION_TYPE.LOAD_PRODUCTS:    
       return {
         ...state,
-        allProducts: [...payload],
-        filteredProducts: [...payload],
+        allProducts: [...payload.products],
+        filteredProducts: [...payload.products],
+        filters: {
+          ...state.filters,
+          maxPrice: payload.maxPrice,
+          minPrice: payload.minPrice,
+        },
       };
     case FILTER_ACTION_TYPE.SET_VIEW_MODE:
       return { ...state, viewMode: payload };

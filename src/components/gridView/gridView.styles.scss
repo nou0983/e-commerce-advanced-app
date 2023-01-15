@@ -4,7 +4,8 @@
   &--grid {
     @include flex-style;
     flex-wrap: wrap;
-    row-gap: 4rem;
+    justify-content: flex-start;
+    gap: 4rem 3.5%;
 
     .product {
       &__image-container {
