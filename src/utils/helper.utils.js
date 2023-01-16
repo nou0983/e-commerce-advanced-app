@@ -7,4 +7,13 @@ const formatPrice = (price) => {
   return newPrice;
 };
 
-export {formatPrice};
+const getUniqueValues = (products, type) => {
+  let specificList = products.map((product) => product[type]);
+  if (type === "colors") {
+    specificList = specificList.flat();
+  }
+
+  return ["all", ...new Set(specificList)];
+};
+
+export { formatPrice, getUniqueValues };

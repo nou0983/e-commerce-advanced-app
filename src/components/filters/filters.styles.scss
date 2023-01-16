@@ -1,0 +1,117 @@
+@import "../../index.scss";
+
+.filter-container {
+  text-transform: capitalize;
+  align-self: flex-start;
+  position: sticky;
+  top: 2rem;
+
+  > *:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  h5 {
+    font-size: 1.7rem;
+  }
+
+  &__input,
+  &__company-input {
+    background-color: $color-grey-10;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+  }
+
+  &__category {
+    @include flex-style;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__category-btn {
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.15rem;
+    text-transform: capitalize;
+
+    &--active {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__company-input {
+    margin-top: 1rem;
+    text-transform: capitalize;
+  }
+
+  &__company-option {
+    text-transform: capitalize;
+  }
+
+  &__colors-container {
+    @include flex-style;
+    margin-top: 1rem;
+    align-items: flex-start;
+  }
+
+  &__color-icon {
+    opacity: 0.6;
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: $color-white;
+
+    &--all {
+      color: $color-black;
+      font-size: 1.6rem;
+      padding-bottom: 0.5rem;
+       border-bottom: 1px solid transparent;
+
+      &-active {
+        opacity: 1;
+        border-bottom-color: $color-black;
+        border-radius: 0;
+      }
+    }
+
+    &--color {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 100px;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    vertical-align: -1px;
+  }
+
+  &__price {
+    margin: 0.5rem 0;
+  }
+
+  &__shipping-input {
+    margin-left: 1rem;
+    vertical-align: -1px;
+  }
+
+  &__clear-btn {
+    @include transition-style;
+    background-color: $color-red-dark;
+    color: $color-white;
+    text-transform: capitalize;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    letter-spacing: 0.15rem;
+    opacity: 0.9;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

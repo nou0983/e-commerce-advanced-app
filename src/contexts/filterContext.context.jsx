@@ -13,15 +13,15 @@ const FilterContext = createContext();
 const FilterContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, INITIAL_FILTER_STATE);
   const { products } = useProductsContext();
-  const { allProducts, filteredProducts, sort } = state;
+  const { allProducts, filteredProducts, sort, filters } = state;
 
   useEffect(() => {
     setDefaultFiltersProducts();
   }, [products]);
 
   useEffect(() => {
-    setFilteredProducts();
-  }, [allProducts, sort]);
+    sortProducts();
+  }, [allProducts, sort, filters]);
 
   const setDefaultFiltersProducts = () => {
     const priceList = products.map((product) => {
@@ -29,8 +29,9 @@ const FilterContextProvider = ({ children }) => {
     });
     const maxPrice = Math.max(...priceList);
     const minPrice = Math.min(...priceList);
-    const payload = { products, maxPrice, minPrice };
- 
+    const price = maxPrice;
+    const payload = { products, maxPrice, minPrice, price };
+
     dispatch(createAction(FILTER_ACTION_TYPE.LOAD_PRODUCTS, payload));
   };
 
@@ -43,7 +44,7 @@ const FilterContextProvider = ({ children }) => {
     dispatch(createAction(FILTER_ACTION_TYPE.SET_SORT, type));
   };
 
-  const setFilteredProducts = () => {
+  const sortProducts = () => {
     let newFilteredProducts = [...allProducts];
 
     if (sort === "price (lowest)") {
@@ -68,10 +69,56 @@ const FilterContextProvider = ({ children }) => {
     );
   };
 
+  const updateFilters = (e) => {
+    console.log("updating products");
+    const newFilteredProducts = filteredProducts;
+    const name = e.target.name;
+    let value;
+
+    if (name === "category") {
+      value = e.target.textContent;
+    } else if (name === "color") {
+      value = e.target.dataset.color;
+    } else if (name === "price") {
+      value = Number(e.target.value);
+    } else if (name === "shipping") {
+      value = e.target.checked;
+    } else {
+      value = e.target.value;
+    }
+
+    const newFilter = {
+      [name]: value,
+    };
+    console.log(newFilter);
+    dispatch(
+      createAction(FILTER_ACTION_TYPE.UPDATE_FILTERS, {
+        newFilteredProducts,
+        newFilter,
+      })
+    );
+  };
+
+  const clearFilters = () => {
+    const payload = {
+      ...filters,
+      text: "",
+      category: "all",
+      company: "all",
+      color: "all",   
+      price: filters.maxPrice,
+      shipping: false,
+    };
+
+    dispatch(createAction(FILTER_ACTION_TYPE.CLEAR_FILTERS, payload));
+  };
+
   const value = {
     ...state,
     toggleViewMode,
     toggleSort,
+    clearFilters,
+    updateFilters,
   };
 
   return (
