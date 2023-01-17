@@ -38,7 +38,7 @@ const SingleProduct = () => {
       ) : (
         <>
           <PageHero type={product.name} product={true} />
-          <ProductContainer {...product} />
+          <ProductContainer product={product} />
         </>
       )}
     </section>

@@ -7,17 +7,20 @@ import { BrowserRouter } from "react-router-dom";
 import { PopupContextProvider } from "./contexts/popupContext.context";
 import { ProductsContextProvider } from "./contexts/productsContext.context";
 import { FilterContextProvider } from "./contexts/filterContext.context";
+import { CartContextProvider } from "./contexts/cartContext.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ProductsContextProvider>
-        <PopupContextProvider>
-          <FilterContextProvider>
-            <App />
-          </FilterContextProvider>
-        </PopupContextProvider>
+        <CartContextProvider>
+          <PopupContextProvider>
+            <FilterContextProvider>
+              <App />
+            </FilterContextProvider>
+          </PopupContextProvider>
+        </CartContextProvider>
       </ProductsContextProvider>
     </BrowserRouter>
   </React.StrictMode>

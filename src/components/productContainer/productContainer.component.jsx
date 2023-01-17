@@ -1,19 +1,21 @@
 import { Button, ProductImages, Stars, AddToCart } from "../index.component";
+import { useCartContext } from "../../contexts/cartContext.context";
 import { formatPrice } from "../../utils/helper.utils";
 import "./productContainer.styles.scss";
 
-const ProductContainer = ({
-  images,
-  name,
-  price,
-  stock,
-  stars,
-  description,
-  reviews,
-  id,
-  company,
-  colors
-}) => {
+const ProductContainer = ({ product }) => {
+  const {
+    images,
+    name,
+    price,
+    stock,
+    stars,
+    description,
+    reviews,
+    id,
+    company  
+  } = product;
+
   return (
     <article className="single-product-container">
       <Button url="/products">back to products</Button>
@@ -40,7 +42,11 @@ const ProductContainer = ({
             <span className="single-product-container__label">Brand :</span>
             <span className="single-product-container__content">{company}</span>
           </p>
-          {stock > 0 && <AddToCart stock={stock} colors={colors} id={id} />}
+          {stock > 0 && (
+            <AddToCart             
+              product={product}       
+            />
+          )}
         </div>
       </div>
     </article>

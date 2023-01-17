@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useCartContext } from "../../contexts/cartContext.context";
 import { Colors, AmountButton, Button } from "../index.component";
 
-const AddToCart = ({ id, colors, stock }) => {
+const AddToCart = ({ product }) => {
+  const { colors, stock, id } = product;
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
+  const { addToCart } = useCartContext();
 
   const decreaseAmount = () => {
     if (amount <= 1) {
@@ -19,6 +22,10 @@ const AddToCart = ({ id, colors, stock }) => {
     setAmount(amount + 1);
   };
 
+  const onClickHandler = () => {
+    addToCart(id, amount, selectedColor, product);
+  };
+
   return (
     <div className="add-btn-container">
       <Colors
@@ -31,7 +38,9 @@ const AddToCart = ({ id, colors, stock }) => {
         decreaseAmount={decreaseAmount}
         increaseAmount={increaseAmount}
       />
-      <Button url="/cart">add to cart</Button>
+      <Button url="/cart" type="checkout" onClickHandler={onClickHandler}>
+        add to cart
+      </Button>
     </div>
   );
 };

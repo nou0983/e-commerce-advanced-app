@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 import "./button.styles.scss";
 
-const Button = ({ url, children }) => {
-  return <Link to={url} className="btn">{children}</Link>;
+const Button = ({ url, children, onClickHandler, type }) => {
+  const clickHandler = () => {
+    if (type === "checkout") {
+      onClickHandler();
+    }
+  };
+
+  return (
+    <Link to={url} className="btn" onClick={clickHandler}>
+      {children}
+    </Link>
+  );
 };
 
 export default Button;
