@@ -20,7 +20,8 @@ const FilterContextProvider = ({ children }) => {
   }, [products]);
 
   useEffect(() => {
-    sortProducts();
+    filterProducts();
+    dispatch(createAction(FILTER_ACTION_TYPE.SET_SORTED_PRODUCTS));
   }, [allProducts, sort, filters]);
 
   const setDefaultFiltersProducts = () => {
@@ -44,20 +45,44 @@ const FilterContextProvider = ({ children }) => {
     dispatch(createAction(FILTER_ACTION_TYPE.SET_SORT, type));
   };
 
-  const sortProducts = () => {
+  const filterProducts = () => {
     let newFilteredProducts = [...allProducts];
+    const { text, category, company, color, price, shipping, maxPrice } =
+      filters;
 
-    if (sort === "price (lowest)") {
-      newFilteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (sort === "price (highest)") {
-      newFilteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
-    } else if (sort === "name (a to z)") {
-      newFilteredProducts = filteredProducts.sort((a, b) =>
-        a.name.localeCompare(b.name)
+    if (text) {
+      newFilteredProducts = newFilteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(text)
       );
-    } else if (sort === "name (z to a)") {
-      newFilteredProducts = filteredProducts.sort((a, b) =>
-        b.name.localeCompare(a.name)
+    }
+
+    if (category !== "all") {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.category.toLowerCase() === category
+      );
+    }
+
+    if (company !== "all") {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.company.toLowerCase() === company
+      );
+    }
+
+    if (color !== "all") {
+      newFilteredProducts = newFilteredProducts.filter((product) =>
+        product.colors.includes(color)
+      );
+    }
+
+    if (price < maxPrice) {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.price <= price
+      );
+    }
+
+    if (shipping) {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.shipping
       );
     }
 
@@ -70,8 +95,6 @@ const FilterContextProvider = ({ children }) => {
   };
 
   const updateFilters = (e) => {
-    console.log("updating products");
-    const newFilteredProducts = filteredProducts;
     const name = e.target.name;
     let value;
 
@@ -90,10 +113,9 @@ const FilterContextProvider = ({ children }) => {
     const newFilter = {
       [name]: value,
     };
-    console.log(newFilter);
+
     dispatch(
       createAction(FILTER_ACTION_TYPE.UPDATE_FILTERS, {
-        newFilteredProducts,
         newFilter,
       })
     );
@@ -105,7 +127,7 @@ const FilterContextProvider = ({ children }) => {
       text: "",
       category: "all",
       company: "all",
-      color: "all",   
+      color: "all",
       price: filters.maxPrice,
       shipping: false,
     };

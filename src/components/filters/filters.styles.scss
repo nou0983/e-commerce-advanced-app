@@ -2,7 +2,6 @@
 
 .filter-container {
   text-transform: capitalize;
-  align-self: flex-start;
   position: sticky;
   top: 2rem;
 
@@ -20,6 +19,10 @@
     border: none;
     border-radius: 5px;
     padding: 1rem 1.5rem;
+    
+    &::placeholder {
+      font-size: 1.5rem;
+    }
   }
 
   &__category {
