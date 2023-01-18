@@ -1,0 +1,57 @@
+@import "../../index.scss";
+
+.section-cart {
+  &__image-box {
+    @include flex-style;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: 25%;
+
+    img {
+      width: 37%;
+      height: 8rem;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    h5 {
+      font-size: 1.7rem;
+    }
+  }
+
+  &__body {
+    p {
+      justify-content: center;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__color {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100px;
+    vertical-align: -2px;
+  }
+
+  &__total-box {
+    @include flex-style;
+    justify-content: flex-end;
+    gap: 31%;
+  }
+
+  &__remove-container {
+    @include transition-style;
+    background-color: $color-red-dark;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $color-white;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

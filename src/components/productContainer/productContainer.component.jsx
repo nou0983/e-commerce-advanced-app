@@ -1,5 +1,4 @@
 import { Button, ProductImages, Stars, AddToCart } from "../index.component";
-import { useCartContext } from "../../contexts/cartContext.context";
 import { formatPrice } from "../../utils/helper.utils";
 import "./productContainer.styles.scss";
 

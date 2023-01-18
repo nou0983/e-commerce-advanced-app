@@ -21,6 +21,9 @@ import Filters from "./filters/filters.component";
 import ProductList from "./productList/productList.component";
 import GridView from "./gridView/gridView.component";
 import ListView from "./listView/listView.component";
+import CartContent from "./cartContent/cartContent.component";
+import CartItem from "./cartItem/cartItem.component";
+import CartTotal from "./cartTotal/cartTotal.component";
 
 export {
   Navigation,
@@ -46,4 +49,7 @@ export {
   ProductList,
   GridView,
   ListView,
+  CartContent,
+  CartItem,
+  CartTotal,
 };

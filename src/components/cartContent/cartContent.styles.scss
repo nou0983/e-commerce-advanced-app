@@ -1,0 +1,74 @@
+@import "../../index.scss";
+
+.section-cart {
+  &__container {
+    @include container-style(6rem, 50%);
+    text-transform: capitalize;
+    min-height: 65vh;
+  }
+
+  &__header {
+    @include flex-style;
+    font-size: 1.8rem;
+    color: $color-grey-5;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid;
+    letter-spacing: 1px;
+
+    span {
+      width: 25%;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    padding: 3.5rem 0;
+    border-bottom: 0.5px solid $color-grey-5;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+
+    article {
+      @include flex-style;
+
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+
+      & > div:not(:first-child), > p {
+        width: 25%;
+        text-align: center;
+      }
+    }
+  }
+
+  &__footer {
+    @include flex-style;
+  }
+
+  &__btn {
+    @include transition-style;
+    background-color: $color-red-dark;
+    color: $color-white;
+    border-radius: 5px;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.6rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 20vh;
+  }
+
+  &__text {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}

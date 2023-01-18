@@ -6,6 +6,7 @@ import {
   cartReducer,
   CART_ACTION_TYPE,
 } from "../reducers/cartReducer";
+import { useEffect } from "react";
 
 const CartContext = createContext();
 
@@ -13,8 +14,11 @@ const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_CART_STATE);
   const { cart } = state;
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (id, amount, color, product) => {
-    console.log("item added");
     const { name, images, price, stock } = product;
     const checkExisting = cart.find((item) => item.id === id + color);
     let payload;
@@ -42,9 +46,14 @@ const CartContextProvider = ({ children }) => {
     dispatch(createAction(CART_ACTION_TYPE.ADD_TO_CART, payload));
   };
 
+  const clearCart = () => {
+    dispatch(createAction(CART_ACTION_TYPE.CLEAR_CART));
+  };
+
   const value = {
     ...state,
     addToCart,
+    clearCart
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
