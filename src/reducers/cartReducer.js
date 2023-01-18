@@ -8,15 +8,18 @@ const getLocalStorage = () => {
 };
 
 const INITIAL_CART_STATE = {
-  totalAmount: 0,
+  total: 0,
   totalItems: 0,
-  shippingFee: 534,
+  shippingFee: 500,
   cart: getLocalStorage(),
 };
 
 const CART_ACTION_TYPE = {
   ADD_TO_CART: "ADD_TO_CART",
   CLEAR_CART: "CLEAR_CART",
+  REMOVE_ITEM: "REMOVE_ITEM",
+  SET_TOTAL: "SET_TOTAL",
+  TOGGLE_AMOUNT: "TOGGLE_AMOUNT",
 };
 
 const cartReducer = (state, action) => {
@@ -27,6 +30,12 @@ const cartReducer = (state, action) => {
       return { ...state, cart: payload };
     case CART_ACTION_TYPE.CLEAR_CART:
       return { ...state, cart: [] };
+    case CART_ACTION_TYPE.REMOVE_ITEM:
+      return { ...state, cart: payload };
+    case CART_ACTION_TYPE.SET_TOTAL:
+      return { ...state, total: payload.newTotal, totalItems: payload.newAmount };
+    case CART_ACTION_TYPE.TOGGLE_AMOUNT:
+      return { ...state, cart: payload };
     default:
       throw new Error(`Unhandled type of ${type} in cartReducer`);
   }

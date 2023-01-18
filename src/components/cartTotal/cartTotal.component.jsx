@@ -2,7 +2,7 @@ import { formatPrice } from "../../utils/helper.utils";
 import { Button } from "../index.component";
 import "./cartTotal.styles.scss";
 
-const CartTotal = ({ totalItems, totalAmount, shippingFee }) => {
+const CartTotal = ({ totalItems, total, shippingFee }) => {
   return (
     <div className="section-cart__total-container">
       <div className="section-cart__total-content">
@@ -11,7 +11,7 @@ const CartTotal = ({ totalItems, totalAmount, shippingFee }) => {
         </p>
         <p className="section-cart__sub-total">
           <span className="section-cart__label">subtotal</span>
-          {formatPrice(totalAmount)}
+          {formatPrice(total)}
         </p>
         <p className="section-cart__shipping">
           <span className="section-cart__label">shipping fee</span>
@@ -19,7 +19,7 @@ const CartTotal = ({ totalItems, totalAmount, shippingFee }) => {
         </p>
         <p className="section-cart__total">
           <span className="section-cart__label">order total</span>
-          {formatPrice(totalAmount + shippingFee)}
+          {formatPrice(total + shippingFee)}
         </p>
       </div>
       <p className="section-cart__login-label">Please login fisrt to complete your purchase.</p>

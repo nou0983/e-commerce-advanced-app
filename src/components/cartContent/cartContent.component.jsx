@@ -3,7 +3,7 @@ import { useCartContext } from "../../contexts/cartContext.context";
 import "./cartContent.styles.scss";
 
 const CartContent = () => {
-  const { cart, clearCart, totalAmount, totalItems, shippingFee } =
+  const { cart, clearCart, total, totalItems, shippingFee } =
     useCartContext();
 
   return (
@@ -30,7 +30,7 @@ const CartContent = () => {
         </button>
       </div>
       <CartTotal
-        totalAmount={totalAmount}
+        total={total}
         totalItems={totalItems}
         shippingFee={shippingFee}
       />

@@ -16,6 +16,7 @@ const CartContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+    setTotal();
   }, [cart]);
 
   const addToCart = (id, amount, color, product) => {
@@ -46,14 +47,48 @@ const CartContextProvider = ({ children }) => {
     dispatch(createAction(CART_ACTION_TYPE.ADD_TO_CART, payload));
   };
 
+  const removeItem = (id) => {
+    const payload = cart.filter((item) => {
+      return item.id !== id;
+    });
+    dispatch(createAction(CART_ACTION_TYPE.REMOVE_ITEM, payload));
+  };
+
   const clearCart = () => {
     dispatch(createAction(CART_ACTION_TYPE.CLEAR_CART));
+  };
+
+  const setTotal = () => {
+    const payload = cart.reduce(
+      (acc, item) => {
+        acc.newTotal = acc.newTotal + item.amount * item.price;
+        acc.newAmount = acc.newAmount + item.amount;
+        return acc;
+      },
+      {
+        newTotal: 0,
+        newAmount: 0,
+      }
+    );
+    dispatch(createAction(CART_ACTION_TYPE.SET_TOTAL, payload));
+  };
+
+  const toggleAmount = (id, newAmount) => {
+    const payload = cart.map((item) => {
+      if (item.id === id) {
+        return { ...item, amount: newAmount };
+      }
+      return item;
+    });
+    dispatch(createAction(CART_ACTION_TYPE.TOGGLE_AMOUNT, payload));
   };
 
   const value = {
     ...state,
     addToCart,
-    clearCart
+    clearCart,
+    removeItem,
+    toggleAmount,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
