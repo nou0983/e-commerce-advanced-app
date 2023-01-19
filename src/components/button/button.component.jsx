@@ -3,9 +3,8 @@ import "./button.styles.scss";
 
 const Button = ({ url, children, onClickHandler, type }) => {
   const clickHandler = () => {
-    if (type === "checkout") {
-      onClickHandler();
-    }
+    if (type === 'user' || type === 'checkout')
+    onClickHandler();
   };
 
   return (

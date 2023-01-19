@@ -1,8 +1,11 @@
 import { formatPrice } from "../../utils/helper.utils";
 import { Button } from "../index.component";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./cartTotal.styles.scss";
 
 const CartTotal = ({ totalItems, total, shippingFee }) => {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+
   return (
     <div className="section-cart__total-container">
       <div className="section-cart__total-content">
@@ -22,8 +25,19 @@ const CartTotal = ({ totalItems, total, shippingFee }) => {
           {formatPrice(total + shippingFee)}
         </p>
       </div>
-      <p className="section-cart__login-label">Please login fisrt to complete your purchase.</p>
-      <Button>login</Button>
+
+      {isAuthenticated ? (
+        <Button url="/checkout">proceed to checkout</Button>
+      ) : (
+        <>
+          <p className="section-cart__login-label">
+            Please login fisrt to complete your purchase.
+          </p>
+          <Button type="user" onClickHandler={loginWithRedirect}>
+            login
+          </Button>
+        </>
+      )}
     </div>
   );
 };

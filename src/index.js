@@ -8,20 +8,28 @@ import { PopupContextProvider } from "./contexts/popupContext.context";
 import { ProductsContextProvider } from "./contexts/productsContext.context";
 import { FilterContextProvider } from "./contexts/filterContext.context";
 import { CartContextProvider } from "./contexts/cartContext.context";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductsContextProvider>
-        <CartContextProvider>
-          <PopupContextProvider>
-            <FilterContextProvider>
-              <App />
-            </FilterContextProvider>
-          </PopupContextProvider>
-        </CartContextProvider>
-      </ProductsContextProvider>
+      <Auth0Provider
+        domain="dev-mudser32z0vv5oza.us.auth0.com"
+        clientId="ckbQFFsHyjAQT9o4cxcNmceohKNqwssK"
+        redirectUri={window.location.origin}
+        cacheLocation="localstorage"
+      >
+        <ProductsContextProvider>
+          <CartContextProvider>
+            <PopupContextProvider>
+              <FilterContextProvider>
+                <App />
+              </FilterContextProvider>
+            </PopupContextProvider>
+          </CartContextProvider>
+        </ProductsContextProvider>
+      </Auth0Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

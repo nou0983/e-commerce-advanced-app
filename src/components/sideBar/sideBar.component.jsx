@@ -2,12 +2,14 @@ import { usePopupContext } from "../../contexts/popupContext.context";
 import { NavLink } from "react-router-dom";
 import { LINKS } from "../../utils/constants.utils";
 import NavButton from "../navButton/navButton.component";
-import logo from "../../assets/logo.svg";
+import { useAuth0 } from "@auth0/auth0-react";
 import { FaTimes } from "react-icons/fa";
+import logo from "../../assets/logo.svg";
 import "./sideBar.styles.scss";
 
 const SideBar = () => {
   const { isSidebarOpen, toggleSidebar } = usePopupContext();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <aside className={`sidebar ${isSidebarOpen && "sidebar--show"}`}>
@@ -32,6 +34,17 @@ const SideBar = () => {
             </li>
           );
         })}
+        {isAuthenticated && (
+          <li className="sidebar__item">
+            <NavLink
+              to="checkout"
+              className="sidebar__link"
+              onClick={toggleSidebar}
+            >
+              checkout
+            </NavLink>
+          </li>
+        )}
       </ul>
       <ul className="sidebar__console">
         <li className="sidebar__btn">
