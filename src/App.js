@@ -8,6 +8,7 @@ import {
   SingleProduct,
   Checkout,
   Error,
+  PrivateRoute,
 } from "./routes/index.route";
 
 function App() {
@@ -19,7 +20,14 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:productId" element={<SingleProduct />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route
+          path="checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>
