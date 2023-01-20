@@ -13,15 +13,15 @@ const FilterContext = createContext();
 const FilterContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, INITIAL_FILTER_STATE);
   const { products } = useProductsContext();
-  const { allProducts, filteredProducts, sort, filters } = state;
+  const { allProducts, sort, filters } = state;
 
   useEffect(() => {
-    setDefaultFiltersProducts();
+    setDefaultFiltersProducts(); // eslint-disable-next-line
   }, [products]);
 
   useEffect(() => {
-    filterProducts();
-    dispatch(createAction(FILTER_ACTION_TYPE.SET_SORTED_PRODUCTS));
+    filterProducts(); 
+    dispatch(createAction(FILTER_ACTION_TYPE.SET_SORTED_PRODUCTS)); // eslint-disable-next-line
   }, [allProducts, sort, filters]);
 
   const setDefaultFiltersProducts = () => {
