@@ -15,8 +15,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Auth0Provider
-        domain="dev-mudser32z0vv5oza.us.auth0.com"
-        clientId="ckbQFFsHyjAQT9o4cxcNmceohKNqwssK"
+        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
         redirectUri={window.location.origin}
         cacheLocation="localstorage"
       >

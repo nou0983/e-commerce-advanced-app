@@ -16,12 +16,14 @@ const FilterContextProvider = ({ children }) => {
   const { allProducts, sort, filters } = state;
 
   useEffect(() => {
-    setDefaultFiltersProducts(); // eslint-disable-next-line
+    setDefaultFiltersProducts();
+    // eslint-disable-next-line
   }, [products]);
 
   useEffect(() => {
-    filterProducts(); 
-    dispatch(createAction(FILTER_ACTION_TYPE.SET_SORTED_PRODUCTS)); // eslint-disable-next-line
+    filterProducts();
+    dispatch(createAction(FILTER_ACTION_TYPE.SET_SORTED_PRODUCTS));
+    // eslint-disable-next-line
   }, [allProducts, sort, filters]);
 
   const setDefaultFiltersProducts = () => {

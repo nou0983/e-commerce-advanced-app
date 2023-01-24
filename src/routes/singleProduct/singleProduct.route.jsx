@@ -17,6 +17,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     fetchSingleProduct(productId);
+    // eslint-disable-next-line
   }, [productId]);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const SingleProduct = () => {
       }, 3000);
     }
     return () => clearTimeout(clearId);
+    // eslint-disable-next-line
   }, [productError]);
 
   return (

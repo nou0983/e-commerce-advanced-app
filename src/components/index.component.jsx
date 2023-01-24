@@ -24,6 +24,7 @@ import ListView from "./listView/listView.component";
 import CartContent from "./cartContent/cartContent.component";
 import CartItem from "./cartItem/cartItem.component";
 import CartTotal from "./cartTotal/cartTotal.component";
+import StripeCheckout from "./stripeCheckout/stripeCheckout.component";
 
 export {
   Navigation,
@@ -52,4 +53,5 @@ export {
   CartContent,
   CartItem,
   CartTotal,
+  StripeCheckout,
 };

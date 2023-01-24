@@ -1,5 +1,18 @@
 @import '../../index.scss';
 
 .section-checkout {
-  min-height: 70vh;;
+  @include container-style(6rem, 50%);
+  min-height: 60vh;
+
+  &__empty {
+    text-align: center;
+    padding-top: 15%;
+  }
+
+  &__text {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
 }

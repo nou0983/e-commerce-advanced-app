@@ -17,6 +17,7 @@ const CartContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     setTotal();
+    // eslint-disable-next-line
   }, [cart]);
 
   const addToCart = (id, amount, color, product) => {
